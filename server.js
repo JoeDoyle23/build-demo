@@ -9,8 +9,8 @@ const app = express();
 app.use(logger("dev"));
 
 app.engine("hbs", hbs.express4());
-app.set('view engine', 'hbs');
-app.set('views', __dirname + '/views');
+app.set("view engine", "hbs");
+app.set("views", __dirname + "/views");
 
 app.use(serveStatic('public'));
 
@@ -25,4 +25,8 @@ app.set("port", process.env.PORT || 5000);
 
 app.listen(app.get("port"), () => {
 	console.log("Super Awesome Server listening on port " + app.get("port"));
+});
+
+process.on("SIGTERM", () => {
+  process.exit(0);
 });

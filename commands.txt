@@ -1,0 +1,5 @@
+kubectl scale --replicas=1 deployment/build-demo
+
+kubectl scale --replicas=16 deployment/build-demo
+
+JVM_ARGS="-Xms1024m -Xmx1024m" jmeter -n -t Build.jmx
